@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="667.0" prefWidth="1247.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sn.school.examenfx.controllers.DashboardController">
+   <children>
+      <VBox layoutY="7.0" prefHeight="501.0" prefWidth="235.0" style="-fx-background-color: teal;" styleClass="panel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="230.0" style="-fx-background-color: teal;" styleClass="btn" text="SenSChool" textFill="#f97316">
+               <graphic>
+                  <FontAwesomeIconView fill="#f97316" glyphName="HOME">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </FontAwesomeIconView>
+               </graphic>
+               <font>
+                  <Font name="JetBrains Mono Bold" size="27.0" />
+               </font></Button>
+            <Button fx:id="BtnUser" alignment="BASELINE_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#PgUSER" prefHeight="39.0" prefWidth="223.0" styleClass="btn" text="Gestion Utilisateur">
+               <graphic>
+                  <FontAwesomeIconView glyphName="STAR" text="" />
+               </graphic>
+               <font>
+                  <Font name="JetBrains Mono Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="BtnCours" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#PgCours" prefHeight="35.0" prefWidth="223.0" styleClass="btn" text="Gestion Cours">
+               <graphic>
+                  <FontAwesomeIconView glyphName="STAR" />
+               </graphic>
+               <font>
+                  <Font name="JetBrains Mono Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="BtnEmargement" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#PgEmargement" prefHeight="40.0" prefWidth="223.0" styleClass="btn" text="Gestion Emargement">
+               <graphic>
+                  <FontAwesomeIconView glyphName="USER" selectionFill="BLACK" text="" />
+               </graphic>
+               <font>
+                  <Font name="JetBrains Mono Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="BtnSalle" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#PgSalle" prefHeight="40.0" prefWidth="223.0" styleClass="btn" text="Gestion Salle">
+               <graphic>
+                  <FontAwesomeIconView glyphName="STAR" />
+               </graphic>
+               <font>
+                  <Font name="JetBrains Mono Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="BtnRapport" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#PgRapport" prefHeight="40.0" prefWidth="223.0" styleClass="btn" text="Rapport">
+               <graphic>
+                  <FontAwesomeIconView glyphName="STAR" />
+               </graphic>
+               <font>
+                  <Font name="JetBrains Mono Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="pnDestop" layoutX="216.0" layoutY="74.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f0fdfa;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="235.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="74.0" />
+      <HBox alignment="CENTER_RIGHT" layoutX="268.0" layoutY="-14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="74.0" prefWidth="700.0" style="-fx-background-color: teal;" AnchorPane.leftAnchor="235.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="178.0">
+               <children>
+                  <Label prefHeight="22.0" prefWidth="191.0" text="Prenom Nom" textFill="WHITE">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="18.0" prefWidth="189.0" text="Role" textFill="#fb923c">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="155.0" styleClass="btn" text="Deconnection">
+               <HBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </HBox.margin>
+               <graphic>
+                  <FontAwesomeIconView />
+               </graphic>
+               <font>
+                  <Font name="JetBrains Mono Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

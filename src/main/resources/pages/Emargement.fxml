@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sn.school.examenfx.controllers.EmargementController">
+   <children>
+      <Pane layoutX="37.0" layoutY="29.0" prefHeight="200.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Gestion Emagement">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="64.0" text="Date" />
+            <DatePicker fx:id="TxtDate" layoutX="96.0" layoutY="57.0" />
+            <Label layoutX="14.0" layoutY="109.0" text="Status" />
+            <ComboBox fx:id="CmbStatut" layoutX="96.0" layoutY="105.0" prefHeight="25.0" prefWidth="175.0" />
+            <Label layoutX="14.0" layoutY="154.0" text="Professeur" />
+            <ComboBox fx:id="CmbProfesseur" layoutX="96.0" layoutY="150.0" prefHeight="25.0" prefWidth="175.0" />
+            <Label fx:id="LblErrorDate" layoutX="96.0" layoutY="81.0" prefHeight="17.0" prefWidth="175.0" textFill="RED" />
+            <ComboBox fx:id="CmbCours" layoutX="96.0" layoutY="198.0" prefHeight="25.0" prefWidth="175.0" />
+            <Button fx:id="BtnAdd" layoutX="13.0" layoutY="273.0" mnemonicParsing="false" onAction="#Add" prefHeight="25.0" prefWidth="101.0" text="Ajouter" />
+            <TextField fx:id="TxtId" layoutX="203.0" layoutY="25.0" prefHeight="25.0" prefWidth="71.0" />
+            <Button fx:id="BtnClear" layoutX="163.0" layoutY="273.0" mnemonicParsing="false" onAction="#Clear" prefHeight="25.0" prefWidth="101.0" text="Effacer" />
+            <Button fx:id="BtnUpdate" layoutX="13.0" layoutY="327.0" mnemonicParsing="false" onAction="#Update" prefHeight="25.0" prefWidth="101.0" text="Modifier" />
+            <Button layoutX="163.0" layoutY="327.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Supprimer" />
+            <Label fx:id="LblErrorStatus" layoutX="96.0" layoutY="131.0" prefHeight="17.0" prefWidth="175.0" textFill="RED" />
+            <Label layoutX="14.0" layoutY="202.0" text="Cours" />
+            <Label fx:id="LblErrorProfesseur" layoutX="96.0" layoutY="175.0" prefHeight="17.0" prefWidth="175.0" textFill="RED" />
+            <Label fx:id="LblErrorCours" layoutX="96.0" layoutY="223.0" prefHeight="17.0" prefWidth="175.0" textFill="RED" textOverrun="CLIP" />
+         </children>
+      </Pane>
+      <Pane layoutX="542.0" layoutY="48.0" prefHeight="50.0" prefWidth="200.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <TableView fx:id="TableEmargement" layoutX="438.0" layoutY="158.0" onMouseClicked="#getData" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+        <columns>
+          <TableColumn fx:id="TbID" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="TbDate" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="TbStatut" prefWidth="81.60003662109375" text="Status" />
+            <TableColumn fx:id="TbProfesseur" prefWidth="107.99993896484375" text="Professeur" />
+            <TableColumn fx:id="TbCours" prefWidth="155.2000732421875" text="Cours" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
