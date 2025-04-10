@@ -4,6 +4,7 @@ import jakarta.persistence.TypedQuery;
 import jakarta.validation.ConstraintViolationException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.mindrot.jbcrypt.BCrypt;
 import sn.school.examenfx.JPAUtil;
 import sn.school.examenfx.entities.User;
 import jakarta.persistence.EntityManager;
@@ -37,6 +38,10 @@ public class UserImpl implements IUser{
       if (!existingUsers.isEmpty()) {
         throw new RuntimeException("Cet email est déjà utilisé !");
       }
+      // Cryptage du mot de passe avec BCrypt
+      String hashedPassword = BCrypt.hashpw(entity.getPassword(), BCrypt.gensalt());
+      entity.setPassword(hashedPassword);
+
       entityManager.persist(entity);
       entityManager.getTransaction().commit();
     } catch (Exception e){
@@ -61,6 +66,10 @@ public class UserImpl implements IUser{
       if (!existingUsers.isEmpty()) {
         throw new RuntimeException("Cet email est déjà utilisé !");
       }
+      // Cryptage du mot de passe avec BCrypt
+      String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+      user.setPassword(hashedPassword);
+
       entityManager.merge(user);
       entityManager.getTransaction().commit();
     } catch (Exception e){
@@ -119,7 +128,20 @@ public class UserImpl implements IUser{
 
   @Override
   public void login(String email, String password) {
+      try {
+          TypedQuery<User> query = entityManager.createQuery(
+              "SELECT u FROM User u WHERE u.email = :email", User.class);
+          query.setParameter("email", email);
+          User user = query.getSingleResult();
 
+          if (BCrypt.checkpw(password, user.getPassword())) {
+              SessionManager.getInstance().setCurrentUser(user);
+          } else {
+              throw new RuntimeException("Email ou mot de passe incorrect");
+          }
+      } catch (Exception e) {
+          throw new RuntimeException("Email ou mot de passe incorrect");
+      }
   }
 
   public List<User> getAllProfessors() {

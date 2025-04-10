@@ -10,6 +10,8 @@ module sn.school.examenfx {
   requires org.hibernate.orm.core;
   requires de.jensd.fx.glyphs.commons;
   requires de.jensd.fx.glyphs.fontawesome;
+  requires jbcrypt;
+  requires jakarta.mail;
 
 
   opens sn.school.examenfx to javafx.fxml;

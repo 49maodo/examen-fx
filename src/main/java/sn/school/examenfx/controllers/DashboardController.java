@@ -1,21 +1,35 @@
 package sn.school.examenfx.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import sn.school.examenfx.App;
+import sn.school.examenfx.dao.SessionManager;
 import sn.school.examenfx.dao.UserImpl;
+import sn.school.examenfx.entities.User;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
+
+//  User CurrentUser = SessionManager.getInstance().getCurrentUser();
+  User CurrentUser ;
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     UserImpl userImp = new UserImpl();
+    if(SessionManager.getInstance().getCurrentUser() != null){
+      CurrentUser = SessionManager.getInstance().getCurrentUser();
+      txtUsername.setText(CurrentUser.getNom() + " " + CurrentUser.getPrenom());
+      txtRole.setText(String.valueOf(CurrentUser.getRole()));
+    }
   }
 
   @FXML
@@ -34,9 +48,18 @@ public class DashboardController implements Initializable {
   private Button BtnUser;
 
   @FXML
+  private Button BtnLogout;
+
+  @FXML
+  private Label txtRole;
+
+  @FXML
+  private Label txtUsername;
+
+  @FXML
   private AnchorPane pnDestop;
   // Méthode générique pour charger les pages
-  private void loadPage(String pageFXML) throws IOException {
+  public void loadPage(String pageFXML) throws IOException {
     try {
     URL url = getClass().getResource(pageFXML);
     System.out.println("Chargement du fichier FXML : " + url); // Debug
@@ -107,6 +130,18 @@ public class DashboardController implements Initializable {
       loadPage("/pages/User.fxml");
       ActiveBtn(BtnUser);
     } catch (Exception e){
+      e.printStackTrace();
+    }
+  }
+
+  @FXML
+  void Logout(ActionEvent event) {
+    SessionManager.getInstance().logout();
+    App app = new App();
+    try {
+      BtnLogout.getScene().getWindow().hide();
+      app.start(new Stage());
+    } catch (Exception e) {
       e.printStackTrace();
     }
   }

@@ -8,6 +8,7 @@ import sn.school.examenfx.JPAUtil;
 import sn.school.examenfx.entities.Cours;
 import sn.school.examenfx.entities.Salle;
 import sn.school.examenfx.entities.User;
+import sn.school.examenfx.utils.EmailUtil;
 
 import java.util.List;
 
@@ -23,6 +24,14 @@ public class CoursImpl implements ICours{
       entityManager.getTransaction().begin();
       entityManager.persist(cours);
       entityManager.getTransaction().commit();
+//      EmailUtil.sendEmail(
+//              cours.getProfesseur().getEmail(),
+//                "Nouveau cours",
+//                "Un nouveau cours a été ajouté à votre emploi du temps\n" +
+//                        "Cours: " + cours.getNom() +
+//                        "Salle: " + cours.getSalle()+
+//                        "Heure: " + cours.getHeureDebut() + " - " + cours.getHeureFin()
+//      );
     } catch (Exception e) {
       if (entityManager.getTransaction().isActive()) {
         entityManager.getTransaction().rollback();

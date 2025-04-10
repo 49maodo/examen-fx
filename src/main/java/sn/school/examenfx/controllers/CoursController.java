@@ -104,6 +104,7 @@ public class CoursController implements Initializable {
     Loadsalle();
     LoadProfesseur();
     LoadTable();
+
   }
   private void showAlert(String title, String message, Alert.AlertType type) {
     Alert alert = new Alert(type);

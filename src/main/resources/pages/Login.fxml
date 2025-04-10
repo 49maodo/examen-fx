@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="412.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sn.school.examenfx.controllers.LoginController">
+   <children>
+      <AnchorPane layoutX="30.0" layoutY="46.0" prefHeight="412.0" prefWidth="285.0" style="-fx-background-color: teal;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="46.0" layoutY="92.0" text="Bienvenue" textFill="WHITE">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="122.0" layoutY="158.0" text="dans" textFill="WHITE">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="154.0" layoutY="223.0" text="SenSchool" textFill="WHITE">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="319.0" layoutY="91.0" text="Email">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtEmail" layoutX="429.0" layoutY="89.0" prefHeight="26.0" prefWidth="232.0" />
+      <Label layoutX="320.0" layoutY="139.0" text="Mot de passe">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="BtnLogin" layoutX="320.0" layoutY="206.0" mnemonicParsing="false" onAction="#Login" prefHeight="30.0" prefWidth="148.0" style="-fx-background-color: teal;" text="Se connecter" textFill="WHITE">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Button>
+      <CheckBox fx:id="ViewPassword" layoutX="521.0" layoutY="185.0" mnemonicParsing="false" onAction="#onViewPassword" text="Voir le mot de passe">
+         <font>
+            <Font name="JetBrains Mono Bold" size="10.0" />
+         </font>
+      </CheckBox>
+      <PasswordField fx:id="txtPassword" layoutX="429.0" layoutY="136.0" prefHeight="26.0" prefWidth="232.0" />
+      <Label fx:id="txtPasswordVisible" layoutX="430.0" layoutY="161.0" visible="false">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

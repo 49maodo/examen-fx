@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sn.school.examenfx.dao.SessionManager;
 
 import java.util.Objects;
 
@@ -15,7 +16,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/pages/Dashboard.fxml")));
+        String fxmlFile = "/pages/" + (SessionManager.getInstance().getCurrentUser() == null ? "Login.fxml" : "Dashboard.fxml");
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlFile)));
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
         stage.setScene(scene);
